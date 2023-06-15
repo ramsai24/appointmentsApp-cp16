@@ -1,1 +1,30 @@
 /* Write your CSS here */
+
+.app-container {
+  background-image: linear-gradient(to bottom, #fbc7d4, #9796f0);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 6px;
+}
+.inputs-container {
+  display: flex;
+}
+
+.appointments-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+hr {
+  border: 2px solid blue;
+}
