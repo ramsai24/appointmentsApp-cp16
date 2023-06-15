@@ -3,6 +3,7 @@
 .app-container {
   background-image: linear-gradient(to bottom, #fbc7d4, #9796f0);
   min-height: 100vh;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,9 +15,13 @@
   background-color: #ffffff;
   padding: 20px;
   border-radius: 6px;
+  width: 70%;
+  max-width: 900px;
+  padding: 30px;
 }
 .inputs-container {
   display: flex;
+  justify-content: space-between;
 }
 
 .appointments-container {
@@ -27,4 +32,117 @@
 
 hr {
   border: 2px solid blue;
+  width: 100%;
+}
+
+.appointmentsImg {
+  width: 300px;
+}
+
+@media screen and (max-width: 786px) {
+  .appointmentsImg {
+    display: none;
+    width: 150px;
+  }
+}
+
+.title-label {
+  font-size: 12px;
+  color: #b5b7c4;
+  font-weight: 500;
+}
+
+.inputEl {
+  width: 100%;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 6px;
+  padding-left: 10px;
+}
+
+.add-btn {
+  background-color: #8b5cf6;
+  color: #ffffff;
+  border-radius: 6px;
+  border: none;
+  padding: 8px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid green;
+  width: 100%;
+  padding: 12px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.appointment {
+  margin-top: 16px;
+}
+
+@media screen and (max-width: 567px) {
+  .appointment {
+    font-size: 20px;
+  }
+}
+
+.starred-btn {
+  background-color: transparent;
+  border: #8b5cf6;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  color: #8b5cf6;
+}
+
+.star-btn {
+  background-color: #8b5cf6;
+  border: #8b5cf6;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  color: #ffffff;
+}
+
+.appointmentListContainer {
+  padding-left: 0px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-item {
+  border: 1px solid #b5b7c4;
+  list-style-type: none;
+  padding: 10px;
+  border-radius: 14px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 300px;
+  margin: 10px;
+}
+
+.title-list-item {
+  margin-top: 7px;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.str-btn {
+  border: none;
+  background-color: transparent;
 }

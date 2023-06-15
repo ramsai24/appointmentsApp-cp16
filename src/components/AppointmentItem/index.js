@@ -13,14 +13,24 @@ const AppointmentItem = props => {
   }
 
   const starImg = isActive ? (
-    <button data-testid="star" type="button" onClick={makeStared}>
+    <button
+      className="str-btn"
+      data-testid="star"
+      type="button"
+      onClick={makeStared}
+    >
       <img
         src="https://assets.ccbp.in/frontend/react-js/appointments-app/filled-star-img.png"
         alt="star"
       />
     </button>
   ) : (
-    <button data-testid="star" type="button" onClick={makeStared}>
+    <button
+      className="str-btn"
+      data-testid="star"
+      type="button"
+      onClick={makeStared}
+    >
       <img
         src="https://assets.ccbp.in/frontend/react-js/appointments-app/star-img.png"
         alt="star"
@@ -28,9 +38,9 @@ const AppointmentItem = props => {
     </button>
   )
   return (
-    <li>
+    <li className="list-item">
       <div>
-        <p>{title}</p>
+        <p className="title-list-item">{title}</p>
         <p>Date: {date}</p>
       </div>
       {starImg}

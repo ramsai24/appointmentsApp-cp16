@@ -74,7 +74,7 @@ class Appointments extends Component {
   render() {
     const {appointmentsList, stared, staredList, title, date} = this.state
     const print = stared ? appointmentsList : staredList
-
+    const starredBtn = stared ? 'starred-btn' : 'star-btn'
     console.log(print)
     return (
       <div className="app-container">
@@ -82,9 +82,12 @@ class Appointments extends Component {
           <div className="inputs-container">
             <form onSubmit={this.addAppointment}>
               <h1>Add Appointment</h1>
-              <label htmlFor="inputEl">TITLE</label>
+              <label className="title-label" htmlFor="inputEl">
+                TITLE
+              </label>
               <br />
               <input
+                className="inputEl"
                 value={title}
                 id="inputEl"
                 type="text"
@@ -92,32 +95,45 @@ class Appointments extends Component {
                 placeholder="Title"
               />
               <br />
-              <label htmlFor="textAreaEl">DATE</label>
+              <label className="title-label" htmlFor="textAreaEl">
+                DATE
+              </label>
               <br />
               <input
+                className="inputEl"
                 value={date}
                 id="textAreaEl"
                 type="date"
                 onChange={this.dateUpdate}
               />
-              <button type="submit">Add</button>
+              <br />
+              <button className="add-btn" type="submit">
+                Add
+              </button>
             </form>
             <img
               src="https://assets.ccbp.in/frontend/react-js/appointments-app/appointments-img.png "
               alt="appointments"
+              className="appointmentsImg"
             />
           </div>
 
           <hr />
           <div className="appointments-container">
-            <h1>Appointments</h1>
-            <button type="button" onClick={this.staredFilter}>
-              Starred
-            </button>
+            <div className="bottom-section">
+              <h1 className="appointment">Appointments</h1>
+              <button
+                className={starredBtn}
+                type="button"
+                onClick={this.staredFilter}
+              >
+                Starred
+              </button>
+            </div>
           </div>
 
           {stared ? (
-            <ul>
+            <ul className="appointmentListContainer">
               {appointmentsList.map(each => (
                 <AppointmentItem
                   key={each.id}
