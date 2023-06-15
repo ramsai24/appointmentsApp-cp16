@@ -2,6 +2,7 @@
 import {Component} from 'react'
 import {v4 as uuidv4} from 'uuid'
 import {format} from 'date-fns'
+
 import AppointmentItem from '../AppointmentItem'
 import './index.css'
 
@@ -14,29 +15,30 @@ class Appointments extends Component {
     staredList: [],
   }
 
-  titleUpdate = event => this.setState({title: event.target.value})
-
-  dateUpdate = event =>
-    this.setState({
-      date: format(new Date(event.target.value), 'dd MMMM yyyy,EEEE'),
-    })
-
   addAppointment = event => {
+    event.preventDefault()
     const {title, date} = this.state
 
     const newAppointment = {
       id: uuidv4(),
       title,
-      date,
+      date: format(new Date(date), 'dd MMMM yyyy, EEEE'),
       isActive: false,
     }
-    event.preventDefault()
-    this.setState(prevs => ({
-      appointmentsList: [...prevs.appointmentsList, newAppointment],
+
+    this.setState(pervs => ({
+      appointmentsList: [...pervs.appointmentsList, newAppointment],
       title: '',
       date: '',
     }))
   }
+
+  titleUpdate = event => this.setState({title: event.target.value})
+
+  dateUpdate = event =>
+    this.setState({
+      date: event.target.value,
+    })
 
   makeStar = id => {
     // const {appointmentsList} = this.state
@@ -70,7 +72,7 @@ class Appointments extends Component {
   }
 
   render() {
-    const {appointmentsList, stared, staredList} = this.state
+    const {appointmentsList, stared, staredList, title, date} = this.state
     const print = stared ? appointmentsList : staredList
 
     console.log(print)
@@ -78,18 +80,27 @@ class Appointments extends Component {
       <div className="app-container">
         <div className="bg-container">
           <div className="inputs-container">
-            <form>
+            <form onSubmit={this.addAppointment}>
               <h1>Add Appointment</h1>
               <label htmlFor="inputEl">TITLE</label>
               <br />
-              <input id="inputEl" type="text" onChange={this.titleUpdate} />
+              <input
+                value={title}
+                id="inputEl"
+                type="text"
+                onChange={this.titleUpdate}
+                placeholder="Title"
+              />
               <br />
               <label htmlFor="textAreaEl">DATE</label>
               <br />
-              <input id="textAreaEl" type="date" onChange={this.dateUpdate} />
-              <button type="submit" onClick={this.addAppointment}>
-                Add
-              </button>
+              <input
+                value={date}
+                id="textAreaEl"
+                type="date"
+                onChange={this.dateUpdate}
+              />
+              <button type="submit">Add</button>
             </form>
             <img
               src="https://assets.ccbp.in/frontend/react-js/appointments-app/appointments-img.png "

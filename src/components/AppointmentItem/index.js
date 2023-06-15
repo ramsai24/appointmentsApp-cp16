@@ -1,4 +1,5 @@
 // Write your code here
+
 import './index.css'
 
 const AppointmentItem = props => {
@@ -12,7 +13,7 @@ const AppointmentItem = props => {
   }
 
   const starImg = isActive ? (
-    <button data-testId="star" type="button" onClick={makeStared}>
+    <button data-testid="star" type="button" onClick={makeStared}>
       <img
         src="https://assets.ccbp.in/frontend/react-js/appointments-app/filled-star-img.png"
         alt="star"
@@ -29,7 +30,7 @@ const AppointmentItem = props => {
   return (
     <li>
       <div>
-        <h1>{title}</h1>
+        <p>{title}</p>
         <p>Date: {date}</p>
       </div>
       {starImg}
